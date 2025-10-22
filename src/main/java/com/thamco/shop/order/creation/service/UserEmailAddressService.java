@@ -10,5 +10,5 @@ public interface UserEmailAddressService
      * @param userId The id of the user
      * @return A list of the user attributes
      */
-    public String getUserEmail(int userId);
+    String getUserEmail(int userId);
 }

@@ -1,6 +1,7 @@
 package com.thamco.shop.order.creation.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DTO representing the response to an {@link OrderItemsRequest}.

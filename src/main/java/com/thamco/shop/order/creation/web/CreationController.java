@@ -1,7 +1,10 @@
 package com.thamco.shop.order.creation.web;
 
-import com.thamco.shop.order.creation.model.*;
-import com.thamco.shop.order.creation.service.*;
+import com.thamco.shop.order.creation.model.OrderRequest;
+import com.thamco.shop.order.creation.model.OrderResponse;
+import com.thamco.shop.order.creation.service.EmailControllerService;
+import com.thamco.shop.order.creation.service.OrderService;
+import com.thamco.shop.order.creation.service.UserEmailAddressService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,10 +49,10 @@ public class CreationController
     }
 
     /**
-     * Creates an order and order items based on the request received from the web app
+     * Creates an order and order items based on the request received from the web app.
      *
-     * @param orderRequest The JSON request from the web app
-     * @return The state of the request
+     * @param orderRequest The JSON request from the web app.
+     * @return The state of the request.
      */
     @PostMapping("/orders/create")
     public ResponseEntity<String> createOrder(@RequestBody OrderRequest orderRequest)

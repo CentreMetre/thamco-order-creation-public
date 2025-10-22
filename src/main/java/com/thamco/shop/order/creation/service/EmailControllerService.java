@@ -11,5 +11,5 @@ public interface EmailControllerService
      * @param subject The subject of the email
      * @param body The body of the email
      */
-    public void sendEmail(String recipient, String subject, String body);
+    void sendEmail(String recipient, String subject, String body);
 }

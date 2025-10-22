@@ -1,6 +1,8 @@
 package com.thamco.shop.order.creation.service;
 
-import com.thamco.shop.order.creation.model.*;
+import com.thamco.shop.order.creation.model.OrderItem;
+import com.thamco.shop.order.creation.model.OrderItemsRequest;
+import com.thamco.shop.order.creation.model.OrderItemsResponse;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.transaction.annotation.Transactional;
 

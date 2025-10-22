@@ -1,8 +1,8 @@
 package com.thamco.shop.order.creation.service;
 
-import com.thamco.shop.order.creation.Application;
 import com.thamco.shop.order.creation.model.StockItem;
 import org.springframework.stereotype.Service;
+
 import java.util.Random;
 import java.util.logging.Logger;
 
