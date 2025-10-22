@@ -1,0 +1,43 @@
+#name: Deploy to Azure Spring Apps
+#
+#on:
+#  push:
+#    branches:
+#      - master
+#  pull_request:
+#    branches:
+#      - master
+#
+#jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Set up Azure CLI
+#        uses: azure/setup-azurecli@v1
+#        with:
+#          azure-cli-version: '2.32.0'
+#
+#      - name: Set environment variables from .env file
+#        run: |
+#          export $(grep -v '^#' .env | xargs)
+#
+#      - name: Login to Azure
+#        run: |
+#          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+#
+#      - name: Set environment variables in Azure Spring Apps
+#        run: |
+#          az spring app set \
+#            --resource-group myResourceGroup \
+#            --service order \
+#            --name order-service \
+#            --env DB_SQL_INIT_MODE=$DB_SQL_INIT_MODE \
+#            --env DB_ENABLE_H2_CONSOLE=$DB_ENABLE_H2_CONSOLE \
+#            --env DB_HIBERNATE_DDL_AUTO=$DB_HIBERNATE_DDL_AUTO \
+#            --env DB_URL=$DB_URL \
+#            --env DB_USERNAME=$DB_USERNAME \
+#            --env DB_PASSWORD=$DB_PASSWORD
