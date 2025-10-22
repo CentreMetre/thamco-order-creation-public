@@ -5,26 +5,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 /**
- * Represents an item that is part of an order. Used to create order_items in the database.
+ * Represents an item that is part of an order. Used to create {@link OrderItem}s in the database.
  */
 @Entity
 @Table(name = "ORDER_ITEMS")
 public class OrderItem
 {
-    //Doesn't need id since it doesn't need to be unique since it is inherently unique because of the order
-
+    /**
+     * Composite ID.
+     */
     @EmbeddedId
     private OrderItemId id;
 
     /**
-     * The amount of an item in the order
+     * The amount of an item in the order.
      */
     private int quantity;
 
     /**
      * The total price for the amount of items in the order item.
      * For example, if there is a quantity of 2 for an item that costs £7.50,
-     * quantityPrice would be 1500 (=2*750) (whole numbers since it is in pence)
+     * quantityPrice would be 1500 (=2*750) (whole numbers since it is in pence).
      */
     private int quantityPriceInPence;
 
@@ -40,8 +41,8 @@ public class OrderItem
     }
 
     /**
-     * Sets the orderId in the OrderItemId id object
-     * @param orderId The id to set
+     * Sets the orderId in the OrderItemId id object.
+     * @param orderId The id to set.
      */
     public void setOrderId(int orderId)
     {
@@ -49,7 +50,7 @@ public class OrderItem
     }
 
     /**
-     * Gets the orderId in the OrderItemId id object
+     * Gets the orderId in the OrderItemId id object.
      */
     public int getOrderId()
     {
@@ -57,8 +58,8 @@ public class OrderItem
     }
 
     /**
-     * Sets the productId in the OrderItemId id object
-     * @param productId The id to set
+     * Sets the productId in the OrderItemId id object.
+     * @param productId The id to set.
      */
     public void setProductId(int productId)
     {
@@ -66,7 +67,9 @@ public class OrderItem
     }
 
     /**
-     * Gets the productId in the OrderItemId id object
+     * Gets the productId in the OrderItemId id object.
+     *
+     * @return the product ID.
      */
     public int getProductId()
     {

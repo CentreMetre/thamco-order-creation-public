@@ -47,6 +47,15 @@ public class OrderItemId implements Serializable
         this.productId = product;
     }
 
+    /**
+     * Checks if {@code o} is the same as this {@link OrderItemId}.
+     * Equality is considered true if {@code o} == {@code this} or if both {@code o} and {@code this}
+     * {@link OrderItemId#orderId} and {@link OrderItemId#productId} values are the same.
+     *
+     * @param o the object to compare with.
+     * @return {@code true} if {@code o} is the same instance or an {@code OrderItemId}
+     *         with the same {@code orderId} and {@code productId}, {@code false} otherwise
+     */
     @Override
     public boolean equals(Object o)
     {
@@ -56,6 +65,16 @@ public class OrderItemId implements Serializable
         return orderId == that.orderId && productId == that.productId;
     }
 
+    /**
+     * Generates a hash code based of {@link OrderItemId#orderId} and {@link OrderItemId#productId} using the formula:
+     * <pre>
+     * 31 * Integer.hashCode(orderId) + Integer.hashCode(productId)
+     * </pre>
+     * This ensures that objects with the same {@code orderId} and {@code productId} produce
+     * the same hash code
+     *
+     * @return an integer hash code value for this object
+     */
     @Override
     public int hashCode()
     {

@@ -3,7 +3,7 @@ package com.thamco.shop.order.creation.model;
 import java.util.List;
 
 /**
- * A class representing a request to create an {@link Order}.
+ * DTO representing a request to create an {@link Order}.
  */
 public class OrderRequest
 {

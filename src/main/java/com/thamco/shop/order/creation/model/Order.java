@@ -6,40 +6,38 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
- * An order object that represents an order in the database. Used to create orders in the database
+ * An order object that represents an order in the database. Used to create orders in the database.
  */
 @Entity
 @Table(name = "ORDERS")
 public class Order
 {
-    //private static int idCounter = 0;
-
     /**
-     * The ID of the order
+     * The ID of the order.
      */
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
 
     /**
-     * The ID of the user that placed the order
+     * The ID of the user that placed the order.
      */
     @NotNull
     private int userId;
 
     /**
-     * The time the order was created
+     * The time the order was created.
      */
     @NotNull(message = "Creation date cannot be null")
     private LocalDateTime createdAt;
 
     /**
-     * The total price of the oder in pence
+     * The total price of the order in pence.
      */
     private int amountInPence;
 
     /**
-     * Null by default, changes to the time it has been fulfilled when it has been fulfilled
+     * Null by default, changes to the time it has been fulfilled when it has been fulfilled.
      */
     private LocalDateTime fulfilled = null;
 
@@ -94,6 +92,11 @@ public class Order
         this.id = id;
     }
 
+    /**
+     * Returns a string with the info of the order.
+     *
+     * @return a string containing the ID, userId, createdAt, and amountInPence
+     */
     @Override
     public String toString()
     {

@@ -1,11 +1,9 @@
 package com.thamco.shop.order.creation.web;
 
-import com.thamco.shop.order.creation.Application;
 import com.thamco.shop.order.creation.model.*;
 import com.thamco.shop.order.creation.service.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +18,7 @@ import java.util.logging.Logger;
 @RestController
 public class CreationController
 {
-    public static final Logger logger = Logger.getLogger(FakeCachedStockService.class.getName());
+    public static final Logger logger = Logger.getLogger(CreationController.class.getName());
 
 
     private final OrderService orderService;
@@ -36,25 +34,20 @@ public class CreationController
         this.userEmailAddressService = userEmailAddressService;
     }
 
-//    @Value("${okta.oauth2.client-id}")
-//    private String clientId;
-//
-//    @Value("${okta.oauth2.client-secret}")
-//    private String clientSecret;
-
-
     /**
      * The default page for this server.
-     * @return A welcome message with current date and time
+     *
+     * @return A welcome message with current server date and time.
      */
     @GetMapping("/")
     public String creationIndex()
     {
-        return("Welcome to creation. This page was accessed at " + LocalDateTime.now());
+        return ("Welcome to creation. This page was accessed at " + LocalDateTime.now());
     }
 
     /**
      * Creates an order and order items based on the request received from the web app
+     *
      * @param orderRequest The JSON request from the web app
      * @return The state of the request
      */
@@ -87,7 +80,7 @@ public class CreationController
         if (orderCreationResponse.getOrderItemsResponse().getOrderItemStatus().equals("Partial Success"))
         {
             emailControllerService.sendEmail(userEmailAddressService.getUserEmail(orderRequest.getUserId()), "Your order has been created",
-                "Your order has been created with ThAmCo. Please check the website to see your order.");
+                    "Your order has been created with ThAmCo. Please check the website to see your order.");
             return ResponseEntity.ok("Order created partially successfully, some items or stock of items are not available.");
         }
 
@@ -97,32 +90,3 @@ public class CreationController
         return ResponseEntity.ok("Order created successfully");
     }
 }
-
-/*
-example json request
-fetch('/orders/create', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${accessToken}'
-    },
-    body: JSON.stringify({
-        userId: 123,
-        orderItems: [
-            { productId: 101, quantity: 2},
-            { productId: 202, quantity: 1}
-        ]
-    })
-})
-.then(response => {
-    if (!response.ok) {
-        return response.text().then(text => {
-            console.error('Error:', text);
-            throw new Error(text);
-        });
-    }
-    return response.json();
-})
-.then(data => console.log(data))
-.catch(error => console.error('Error:', error));
- */

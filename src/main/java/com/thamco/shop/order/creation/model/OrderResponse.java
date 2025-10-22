@@ -1,7 +1,7 @@
 package com.thamco.shop.order.creation.model;
 
 /**
- * Class for the response of an order creation.
+ * DTO for the response of an order creation.
  */
 public class OrderResponse
 {

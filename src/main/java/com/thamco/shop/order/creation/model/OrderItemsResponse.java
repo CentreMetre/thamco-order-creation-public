@@ -3,7 +3,7 @@ package com.thamco.shop.order.creation.model;
 import java.util.*;
 
 /**
- * A class representing the response to an {@link OrderItemsRequest}.
+ * DTO representing the response to an {@link OrderItemsRequest}.
  */
 public class OrderItemsResponse
 {
@@ -70,8 +70,9 @@ public class OrderItemsResponse
 
     /**
      * Adds a failed order item with the id and the quantity which failed to be added.
-     * @param id The id of the product which couldn't be either fully or partially added
-     * @param quantity The amount that couldn't be added
+     * One usage for this is if there isn't enough in stock of the item.
+     * @param id The id of the product which couldn't be either fully or partially added.
+     * @param quantity The amount that couldn't be added.
      */
     public void addToFailedOrderItems(int id, int quantity)
     {
