@@ -1,6 +1,6 @@
 # ThAmCo Order Creation Microservice
 
-> Originally developed as part of the Cloud Computing DevOps module in the Computer Science programme.
+> Originally developed as part of the Cloud Computing DevOps module in the Computer Science course.
 
 This project is part of the ThAmCo Order subsystem.
 It fulfils its job as a microservice for creating orders.
