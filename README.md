@@ -1,5 +1,10 @@
+# ThAmCo Order Creation Microservice
+
+> Originally developed as part of the Cloud Computing DevOps module in the Computer Science programme.
+
 This project is part of the ThAmCo Order subsystem.
 This project is a microservice for the job of creating orders.
+> ***Note:*** This is purely a backend API microservice, no pages are served.
 
 It has the functional requirements of adding 10% to a price.
 
