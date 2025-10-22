@@ -3,9 +3,9 @@
 > Originally developed as part of the Cloud Computing DevOps module in the Computer Science programme.
 
 This project is part of the ThAmCo Order subsystem.
-It fulfils the job as a microservice for creating orders.
+It fulfils its job as a microservice for creating orders.
 
-> ***Note:*** This is purely a backend API microservice, no pages are served.
+> Originally developed as part of the Cloud Computing DevOps module in the Computer Science programme.
 
 It has the functional requirements of adding 10% to a price.
 
